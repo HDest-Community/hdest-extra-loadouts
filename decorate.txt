@@ -1,0 +1,320 @@
+actor HDP_L21:HDPlayerPawn{
+	player.displayname "Loadout 21"
+	hdplayerpawn.loadout "hd_loadout21"
+}
+actor HDP_L22:HDPlayerPawn{
+	player.displayname "Loadout 22"
+	hdplayerpawn.loadout "hd_loadout22"
+}
+actor HDP_L23:HDPlayerPawn{
+	player.displayname "Loadout 23"
+	hdplayerpawn.loadout "hd_loadout23"
+}
+actor HDP_L24:HDPlayerPawn{
+	player.displayname "Loadout 24"
+	hdplayerpawn.loadout "hd_loadout24"
+}
+actor HDP_L25:HDPlayerPawn{
+	player.displayname "Loadout 25"
+	hdplayerpawn.loadout "hd_loadout25"
+}
+actor HDP_L26:HDPlayerPawn{
+	player.displayname "Loadout 26"
+	hdplayerpawn.loadout "hd_loadout26"
+}
+actor HDP_L27:HDPlayerPawn{
+	player.displayname "Loadout 27"
+	hdplayerpawn.loadout "hd_loadout27"
+}
+actor HDP_L28:HDPlayerPawn{
+	player.displayname "Loadout 28"
+	hdplayerpawn.loadout "hd_loadout28"
+}
+actor HDP_L29:HDPlayerPawn{
+	player.displayname "Loadout 29"
+	hdplayerpawn.loadout "hd_loadout29"
+}
+actor HDP_L30:HDPlayerPawn{
+	player.displayname "Loadout 30"
+	hdplayerpawn.loadout "hd_loadout30"
+}
+actor HDP_L31:HDPlayerPawn{
+	player.displayname "Loadout 31"
+	hdplayerpawn.loadout "hd_loadout31"
+}
+actor HDP_L32:HDPlayerPawn{
+	player.displayname "Loadout 32"
+	hdplayerpawn.loadout "hd_loadout32"
+}
+actor HDP_L33:HDPlayerPawn{
+	player.displayname "Loadout 33"
+	hdplayerpawn.loadout "hd_loadout33"
+}
+actor HDP_L34:HDPlayerPawn{
+	player.displayname "Loadout 34"
+	hdplayerpawn.loadout "hd_loadout34"
+}
+actor HDP_L35:HDPlayerPawn{
+	player.displayname "Loadout 35"
+	hdplayerpawn.loadout "hd_loadout35"
+}
+actor HDP_L36:HDPlayerPawn{
+	player.displayname "Loadout 36"
+	hdplayerpawn.loadout "hd_loadout36"
+}
+actor HDP_L37:HDPlayerPawn{
+	player.displayname "Loadout 37"
+	hdplayerpawn.loadout "hd_loadout37"
+}
+actor HDP_L38:HDPlayerPawn{
+	player.displayname "Loadout 38"
+	hdplayerpawn.loadout "hd_loadout38"
+}
+actor HDP_L39:HDPlayerPawn{
+	player.displayname "Loadout 39"
+	hdplayerpawn.loadout "hd_loadout39"
+}
+actor HDP_l40:HDPlayerPawn{
+	player.displayname "Loadout 40"
+	hdplayerpawn.loadout "hd_loadout40"
+}
+actor HDP_l41:HDPlayerPawn{
+	player.displayname "Loadout 41"
+	hdplayerpawn.loadout "hd_loadout41"
+}
+actor HDP_l42:HDPlayerPawn{
+	player.displayname "Loadout 42"
+	hdplayerpawn.loadout "hd_loadout42"
+}
+actor HDP_l43:HDPlayerPawn{
+	player.displayname "Loadout 43"
+	hdplayerpawn.loadout "hd_loadout43"
+}
+actor HDP_l44:HDPlayerPawn{
+	player.displayname "Loadout 44"
+	hdplayerpawn.loadout "hd_loadout44"
+}
+actor HDP_l45:HDPlayerPawn{
+	player.displayname "Loadout 45"
+	hdplayerpawn.loadout "hd_loadout45"
+}
+actor HDP_l46:HDPlayerPawn{
+	player.displayname "Loadout 46"
+	hdplayerpawn.loadout "hd_loadout46"
+}
+actor HDP_l47:HDPlayerPawn{
+	player.displayname "Loadout 47"
+	hdplayerpawn.loadout "hd_loadout47"
+}
+actor HDP_l48:HDPlayerPawn{
+	player.displayname "Loadout 48"
+	hdplayerpawn.loadout "hd_loadout48"
+}
+actor HDP_l49:HDPlayerPawn{
+	player.displayname "Loadout 49"
+	hdplayerpawn.loadout "hd_loadout49"
+}
+actor HDP_l50:HDPlayerPawn{
+	player.displayname "Loadout 50"
+	hdplayerpawn.loadout "hd_loadout50"
+}
+actor HDP_l51:HDPlayerPawn{
+	player.displayname "Loadout 51"
+	hdplayerpawn.loadout "hd_loadout51"
+}
+actor HDP_l52:HDPlayerPawn{
+	player.displayname "Loadout 52"
+	hdplayerpawn.loadout "hd_loadout52"
+}
+actor HDP_l53:HDPlayerPawn{
+	player.displayname "Loadout 53"
+	hdplayerpawn.loadout "hd_loadout53"
+}
+actor HDP_l54:HDPlayerPawn{
+	player.displayname "Loadout 54"
+	hdplayerpawn.loadout "hd_loadout54"
+}
+actor HDP_l55:HDPlayerPawn{
+	player.displayname "Loadout 55"
+	hdplayerpawn.loadout "hd_loadout55"
+}
+actor HDP_l56:HDPlayerPawn{
+	player.displayname "Loadout 56"
+	hdplayerpawn.loadout "hd_loadout56"
+}
+actor HDP_l57:HDPlayerPawn{
+	player.displayname "Loadout 57"
+	hdplayerpawn.loadout "hd_loadout57"
+}
+actor HDP_l58:HDPlayerPawn{
+	player.displayname "Loadout 58"
+	hdplayerpawn.loadout "hd_loadout58"
+}
+actor HDP_l59:HDPlayerPawn{
+	player.displayname "Loadout 59"
+	hdplayerpawn.loadout "hd_loadout59"
+}
+actor HDP_l60:HDPlayerPawn{
+	player.displayname "Loadout 60"
+	hdplayerpawn.loadout "hd_loadout60"
+}
+actor HDP_l61:HDPlayerPawn{
+	player.displayname "Loadout 61"
+	hdplayerpawn.loadout "hd_loadout61"
+}
+actor HDP_l62:HDPlayerPawn{
+	player.displayname "Loadout 62"
+	hdplayerpawn.loadout "hd_loadout62"
+}
+actor HDP_l63:HDPlayerPawn{
+	player.displayname "Loadout 63"
+	hdplayerpawn.loadout "hd_loadout63"
+}
+actor HDP_l64:HDPlayerPawn{
+	player.displayname "Loadout 64"
+	hdplayerpawn.loadout "hd_loadout64"
+}
+actor HDP_l65:HDPlayerPawn{
+	player.displayname "Loadout 65"
+	hdplayerpawn.loadout "hd_loadout65"
+}
+actor HDP_l66:HDPlayerPawn{
+	player.displayname "Loadout 66"
+	hdplayerpawn.loadout "hd_loadout66"
+}
+actor HDP_l67:HDPlayerPawn{
+	player.displayname "Loadout 67"
+	hdplayerpawn.loadout "hd_loadout67"
+}
+actor HDP_l68:HDPlayerPawn{
+	player.displayname "Loadout 68"
+	hdplayerpawn.loadout "hd_loadout68"
+}
+actor HDP_l69:HDPlayerPawn{
+	player.displayname "Loadout 69"
+	hdplayerpawn.loadout "hd_loadout69"
+}
+actor HDP_l70:HDPlayerPawn{
+	player.displayname "Loadout 70"
+	hdplayerpawn.loadout "hd_loadout70"
+}
+actor HDP_l71:HDPlayerPawn{
+	player.displayname "Loadout 71"
+	hdplayerpawn.loadout "hd_loadout71"
+}
+actor HDP_l72:HDPlayerPawn{
+	player.displayname "Loadout 72"
+	hdplayerpawn.loadout "hd_loadout72"
+}
+actor HDP_l73:HDPlayerPawn{
+	player.displayname "Loadout 73"
+	hdplayerpawn.loadout "hd_loadout73"
+}
+actor HDP_l74:HDPlayerPawn{
+	player.displayname "Loadout 74"
+	hdplayerpawn.loadout "hd_loadout74"
+}
+actor HDP_l75:HDPlayerPawn{
+	player.displayname "Loadout 75"
+	hdplayerpawn.loadout "hd_loadout75"
+}
+actor HDP_l76:HDPlayerPawn{
+	player.displayname "Loadout 76"
+	hdplayerpawn.loadout "hd_loadout76"
+}
+actor HDP_l77:HDPlayerPawn{
+	player.displayname "Loadout 77"
+	hdplayerpawn.loadout "hd_loadout77"
+}
+actor HDP_l78:HDPlayerPawn{
+	player.displayname "Loadout 78"
+	hdplayerpawn.loadout "hd_loadout78"
+}
+actor HDP_l79:HDPlayerPawn{
+	player.displayname "Loadout 79"
+	hdplayerpawn.loadout "hd_loadout79"
+}
+actor HDP_l80:HDPlayerPawn{
+	player.displayname "Loadout 80"
+	hdplayerpawn.loadout "hd_loadout80"
+}
+actor HDP_l81:HDPlayerPawn{
+	player.displayname "Loadout 81"
+	hdplayerpawn.loadout "hd_loadout81"
+}
+actor HDP_l82:HDPlayerPawn{
+	player.displayname "Loadout 82"
+	hdplayerpawn.loadout "hd_loadout82"
+}
+actor HDP_l83:HDPlayerPawn{
+	player.displayname "Loadout 83"
+	hdplayerpawn.loadout "hd_loadout83"
+}
+actor HDP_l84:HDPlayerPawn{
+	player.displayname "Loadout 84"
+	hdplayerpawn.loadout "hd_loadout84"
+}
+actor HDP_l85:HDPlayerPawn{
+	player.displayname "Loadout 85"
+	hdplayerpawn.loadout "hd_loadout85"
+}
+actor HDP_l86:HDPlayerPawn{
+	player.displayname "Loadout 86"
+	hdplayerpawn.loadout "hd_loadout86"
+}
+actor HDP_l87:HDPlayerPawn{
+	player.displayname "Loadout 87"
+	hdplayerpawn.loadout "hd_loadout87"
+}
+actor HDP_l88:HDPlayerPawn{
+	player.displayname "Loadout 88"
+	hdplayerpawn.loadout "hd_loadout88"
+}
+actor HDP_l89:HDPlayerPawn{
+	player.displayname "Loadout 89"
+	hdplayerpawn.loadout "hd_loadout89"
+}
+actor HDP_l90:HDPlayerPawn{
+	player.displayname "Loadout 90"
+	hdplayerpawn.loadout "hd_loadout90"
+}
+actor HDP_l91:HDPlayerPawn{
+	player.displayname "Loadout 91"
+	hdplayerpawn.loadout "hd_loadout91"
+}
+actor HDP_l92:HDPlayerPawn{
+	player.displayname "Loadout 92"
+	hdplayerpawn.loadout "hd_loadout92"
+}
+actor HDP_l93:HDPlayerPawn{
+	player.displayname "Loadout 93"
+	hdplayerpawn.loadout "hd_loadout93"
+}
+actor HDP_l94:HDPlayerPawn{
+	player.displayname "Loadout 94"
+	hdplayerpawn.loadout "hd_loadout94"
+}
+actor HDP_l95:HDPlayerPawn{
+	player.displayname "Loadout 95"
+	hdplayerpawn.loadout "hd_loadout95"
+}
+actor HDP_l96:HDPlayerPawn{
+	player.displayname "Loadout 96"
+	hdplayerpawn.loadout "hd_loadout96"
+}
+actor HDP_l97:HDPlayerPawn{
+	player.displayname "Loadout 97"
+	hdplayerpawn.loadout "hd_loadout97"
+}
+actor HDP_l98:HDPlayerPawn{
+	player.displayname "Loadout 98"
+	hdplayerpawn.loadout "hd_loadout98"
+}
+actor HDP_l99:HDPlayerPawn{
+	player.displayname "Loadout 99"
+	hdplayerpawn.loadout "hd_loadout99"
+}
+actor HDP_l100:HDPlayerPawn{
+	player.displayname "Loadout 100"
+	hdplayerpawn.loadout "hd_loadout100"
+}
