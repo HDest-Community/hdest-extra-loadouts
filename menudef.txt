@@ -68,7 +68,7 @@ OptionMenu "HDOptionsMenu"{
 	Option "Add dirty window textures","hd_dirtywindows","YesNo"
 	Option "Map geometry destruction","hd_nodoorbuster","DoorBuster"
 	Option "Replace bots with riflemen","hd_nobots","YesNo"
-	Option "Only 3 movement speeds in multiplayer","hd_3speed","YesNo"
+	// Option "Only 3 movement speeds in multiplayer","hd_3speed","YesNo" // This cvar is removed?
 	StaticText " "
 	Option "Drop everything on death","hd_dropeverythingondeath","YesNo"
 	Option "Power of Friendship respawn mode","hd_pof","YesNo"
@@ -76,7 +76,6 @@ OptionMenu "HDOptionsMenu"{
 	Option "Flagpole mode","hd_flagpole","YesNo"
 	StaticText " "
 	SafeCommand "Reset Server Settings","hd_clearscv","Really clear all server settings?"
-
 	StaticText " "
 	StaticText "User Settings",1
 	Slider "Height","hd_height",140,210,5,0
@@ -88,7 +87,6 @@ OptionMenu "HDOptionsMenu"{
 	Slider "HUD use key delay","hd_hudusedelay",-2,70,1,0
 	Option "HUD style","hd_hudstyle","HudStyle"
 	Option "Use key doubles as focus key","hd_usefocus","YesNo"
-	Option "Auto-strip for medikit","hd_autostrip","YesNo"
 	Slider "Focus key aiming sensitivity","hd_aimsensitivity",0.05,0.99,0.05,2
 	Slider "Braced weapon aiming sensitivity","hd_bracesensitivity",0.05,0.99,0.05,2
 	Option "Don't hold Zoom to lean","hd_nozoomlean","YesNo"
@@ -98,13 +96,11 @@ OptionMenu "HDOptionsMenu"{
 	Option "Passive inventory consolidation","hd_consolidate","YesNo"
 	Option "Random monster voice pitch","hd_monstervoicepitch","YesNo"
 	SafeCommand "Reset User Settings","hd_clearucv","Really clear all user settings?"
-
 	StaticText " "
 	StaticText "GZDoom Bob Settings",1
 	Slider "$DSPLYMNU_MOVEBOB","movebob",0,1.0,0.05,2
 	Slider "$DSPLYMNU_STILLBOB","stillbob",0,1.0,0.05,2
 	Slider "$DSPLYMNU_BOBSPEED","wbobspeed",0,2.0,0.1
-
 	StaticText " "
 	StaticText "User Personal Gear Settings",1
 	Option "DERP mode","hd_derpmode","DERPModes"
