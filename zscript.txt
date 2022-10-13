@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
 // Menu
 // ------------------------------------------------------------
-Version "4.7.1"
+Version "4.8.2"
 enum HDLoadoutMenuNums{
 	HD_MAXLOADOUTS=30,
 }
@@ -23,6 +23,7 @@ class HDLoadoutMenu2:GenericMenu{
 	bool different;
 	bool viewlist;
 	bool isnewgamemenu;
+	bool showhelp;
 	override void Init(menu parent){
 		super.Init(parent);
 		refids.clear();
@@ -31,6 +32,7 @@ class HDLoadoutMenu2:GenericMenu{
 		tlcursy=0;
 		isnewgamemenu=false;
 		different=false;
+		showhelp=false;
 		statusstring="Now editing loadout no. "..cursy;
 		statustimer=0;
 		loadoutname="";
@@ -211,8 +213,9 @@ class HDLoadoutMenu2:GenericMenu{
 						if(viewlist)viewlist=false;else viewlist=true;
 						tlcursy=0;
 						maxtextwidth=0;
-					}
-					else if(inp~=="n"){
+					}else if(inp~=="h"){
+						showhelp=!showhelp;
+					}else if(inp~=="n"){
 						if(
 							workingstring==cvar.findcvar("hd_loadout"..cursy).getstring()
 						){
@@ -386,14 +389,25 @@ class HDLoadoutMenu2:GenericMenu{
 		);
 		vcurs+=BigFont.GetHeight()+(NewSmallFont.GetHeight()>>1);
 
-		hs="\cgSyntax:   \cazzzz#aaaa:xxx n, yyy n, bak yyy n. yyy n\n\cazzzz\cu preview picture (optional)   \caaaaa\cu name (optional)\n\caxxx\cu starting weapon   \cayyy\cu anything else\n\can\cu number given\cu (optional, default 1)\n\cabak\cu begin backpack settings\n\camap\cu for map   \cakey\cu for keys (bitflag BYR)\n\n\cdENTER\cu save   \cdESC\cu clear changes   \cdCtrl+R\cu reset";
+		hs="\cdENTER\cu save   \cdESC\cu clear changes   \cdCtrl+R\cu reset   \cdCtrl+H\cu "..(showhelp?"hide":"view").." syntax help";
 		screen.DrawText(NewSmallFont,
 			OptionMenuSettings.mFontColor,
 			(screen.GetWidth() - NewSmallFont.StringWidth(hs) * CleanXfac_1) / 2,
 			vcurs*CleanYfac_1,
 			hs,DTA_CleanNoMove_1, true
 		);
-		vcurs+=NewSmallFont.GetHeight()*10;
+		vcurs+=NewSmallFont.GetHeight()*2;
+
+		if(showhelp){
+			hs="\cgSyntax:   \cazzzz#aaaa:xxx n, yyy n, bak yyy n. yyy n\n\cazzzz\cu preview picture (optional)   \caaaaa\cu name (optional)\n\caxxx\cu starting weapon   \cayyy\cu anything else\n\can\cu number given\cu (optional, default 1)\n\cabak\cu begin backpack settings\n\camap\cu for map   \cakey\cu for keys (bitflag BYR)\n\n";
+			screen.DrawText(NewSmallFont,
+				OptionMenuSettings.mFontColor,
+				(screen.GetWidth() - NewSmallFont.StringWidth(hs) * CleanXfac_1) / 2,
+				vcurs*CleanYfac_1,
+				hs,DTA_CleanNoMove_1, true
+			);
+			vcurs+=NewSmallFont.GetHeight()*7;
+		}
 
 		string ws=workingstring;
 		int tempcursx=cursx;
