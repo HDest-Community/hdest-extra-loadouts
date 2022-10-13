@@ -73,6 +73,7 @@ OptionMenu "HDOptionsMenu"{
 	Option "Drop everything on death","hd_dropeverythingondeath","YesNo"
 	Option "Power of Friendship respawn mode","hd_pof","YesNo"
 	Option "Disintegrate without incapacitation","hd_disintegrator","YesNo"
+	Option "Instagib mode","hd_instagib","YesNo"
 	Option "Flagpole mode","hd_flagpole","YesNo"
 	StaticText " "
 	SafeCommand "Reset Server Settings","hd_clearscv","Really clear all server settings?"
