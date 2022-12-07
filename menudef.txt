@@ -68,7 +68,7 @@ OptionMenu "HDOptionsMenu"{
 	Option "Add dirty window textures","hd_dirtywindows","YesNo"
 	Option "Map geometry destruction","hd_nodoorbuster","DoorBuster"
 	Option "Replace bots with riflemen","hd_nobots","YesNo"
-	Option "Only 3 movement speeds in multiplayer","hd_3speed","YesNo"
+	// Option "Only 3 movement speeds in multiplayer","hd_3speed","YesNo" // This cvar is removed?
 	StaticText " "
 	Option "Drop everything on death","hd_dropeverythingondeath","YesNo"
 	Option "Power of Friendship respawn mode","hd_pof","YesNo"
