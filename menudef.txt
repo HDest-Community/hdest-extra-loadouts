@@ -45,72 +45,73 @@ ListMenu "MainMenu"{
 }
 
 OptionMenu "HDOptionsMenu"{
-	Title "HIDEOUS DESTRUCTOR OPTIONS"
+	Title "$HDOPTIONS_TITLE"
 	StaticText " "
-	Submenu "Loadout Editor","HDLoadoutMenu2"
-	Submenu "Configure HD Controls","HDControlsMenu"
+	Submenu "$HDOPTIONS_LOADOUTEDITOR","HDLoadoutMenu2"
+	Submenu "$HDOPTIONS_CONFIGURECONTROLS","HDControlsMenu"
+	Submenu "$HDOPTIONS_ADDONMENU", "HDAddonMenu"
 	StaticText " "
-	StaticText "Server Settings",1
-	Command "Server Preset: Casual", hdskill_casual
-	Command "Server Preset: Normal", hdskill_normal
-	Command "Server Preset: Hardcore", hdskill_hardcore
+	StaticText "$HDOPTIONS_SERVERSETTINGS",1
+	Command "$HDOPTIONS_PRESETCASUAL", hdskill_casual
+	Command "$HDOPTIONS_PRESETNORMAL", hdskill_normal
+	Command "$HDOPTIONS_PRESETHARDCORE", hdskill_hardcore
 	StaticText " "
-	Slider "Encumbrance multiplier","hd_encumbrance",0,2.,0.05,2
-	Slider "Damage multiplier","hd_damagefactor",0.3,3.,0.05,2
-	Slider "Maximum strength","hd_maxstrength",0.2,11,0.2,2
-	Option "No bleeding","hd_nobleed","YesNo"
-	Slider "Killer barrel spawn rate","hd_killerbarrels",0,100,5,0
-	Slider "Spawn shard every _ tics","hd_shardrate",0,10500,210,0
-	Option "Reduce archvile spam","hd_novilespam","YesNo"
-	Option "[Doom] fast monsters","sv_fastmonsters","YesNo"
+	Slider "$HDOPTIONS_ENCUMBRANCEMULTIPLIER","hd_encumbrance",0,2.,0.05,2
+	Slider "$HDOPTIONS_DAMAGEMULTIPLIER","hd_damagefactor",0.3,3.,0.05,2
+	Slider "$HDOPTIONS_MAXSTRENGTH","hd_maxstrength",0.2,11,0.2,2
+	Option "$HDOPTIONS_NOBLEEDING","hd_nobleed","YesNo"
+	Slider "$HDOPTIONS_KILLERBARRELS","hd_killerbarrels",0,100,5,0
+	Slider "$HDOPTIONS_FRAGTICK","hd_shardrate",0,10500,210,0
+	Option "$HDOPTIONS_ARCHVILESPAM","hd_novilespam","YesNo"
+	Option "$HDOPTIONS_FASTMONSTERS","sv_fastmonsters","YesNo"
 	StaticText " "
-	Option "Cap lift speeds to safe levels","hd_safelifts","YesNo"
-	Option "Add dirty window textures","hd_dirtywindows","YesNo"
-	Option "Map geometry destruction","hd_nodoorbuster","DoorBuster"
-	Option "Replace bots with riflemen","hd_nobots","YesNo"
+	Option "$HDOPTIONS_CAPLIFTSPEEDS","hd_safelifts","YesNo"
+	Option "$HDOPTIONS_DIRTYWINDOWS","hd_dirtywindows","YesNo"
+	Option "$HDOPTIONS_MAPDESTRUCTION","hd_nodoorbuster","DoorBuster"
+	Option "$HDOPTIONS_REPLACEBOTS","hd_nobots","YesNo"
 	// Option "Only 3 movement speeds in multiplayer","hd_3speed","YesNo" // This cvar is removed?
 	StaticText " "
-	Option "Drop everything on death","hd_dropeverythingondeath","YesNo"
-	Option "Power of Friendship respawn mode","hd_pof","YesNo"
-	Option "Disintegrate without incapacitation","hd_disintegrator","YesNo"
-	Option "Instagib mode","hd_instagib","YesNo"
-	Option "Flagpole mode","hd_flagpole","YesNo"
+	Option "$HDOPTIONS_DROPONDEATH","hd_dropeverythingondeath","YesNo"
+	Option "$HDOPTIONS_POF","hd_pof","YesNo"
+	Option "$HDOPTIONS_DISINTIGRATOR","hd_disintegrator","YesNo"
+	Option "$HDOPTIONS_INSTAGIB","hd_instagib","YesNo"
+	Option "$HDOPTIONS_FLAGPOLE","hd_flagpole","YesNo"
 	StaticText " "
-	SafeCommand "Reset Server Settings","hd_clearscv","Really clear all server settings?"
+	SafeCommand "$HDOPTIONS_RESETSERVERSETTINGS","hd_clearscv","$HDOPTIONS_REALLYRESETSERVERSETTINGS"
 
 	StaticText " "
-	StaticText "User Settings",1
-	Slider "Height","hd_height",140,210,5,0
-	Slider "Strength","hd_strength",0.2,11,0.2,2
-	Option "Help text","hd_helptext","YesNo"
-	Option "Passive sight view","hd_noscope","NoScope"
-	Option "Sights visible when moving","hd_sightbob","YesNo"
-	Slider "Crosshair scale","hd_crosshairscale",0.1,3.0,0.1,1
-	Slider "HUD use key delay","hd_hudusedelay",-2,70,1,0
-	Option "HUD style","hd_hudstyle","HudStyle"
-	Option "Use key doubles as focus key","hd_usefocus","YesNo"
-	Slider "Focus key aiming sensitivity","hd_aimsensitivity",0.05,0.99,0.05,2
-	Slider "Braced weapon aiming sensitivity","hd_bracesensitivity",0.05,0.99,0.05,2
-	Option "Don't hold Zoom to lean","hd_nozoomlean","YesNo"
-	Option "No slide/roll from crouch","hd_noslide","NoSlide"
-	Option "Swap left/right controls on side-by-side gun","hd_swapbarrels","YesNo"
-	ScaleSlider "Mag pickup limit","hd_maglimit",0,20,1,"No limit"
-	Option "Passive inventory consolidation","hd_consolidate","YesNo"
-	Option "Random monster voice pitch","hd_monstervoicepitch","YesNo"
-	SafeCommand "Reset User Settings","hd_clearucv","Really clear all user settings?"
+	StaticText "$HDOPTIONS_USERSETTINGS",1
+	Slider "$HDOPTIONS_HEIGHT","hd_height",140,210,5,0
+	Slider "$HDOPTIONS_STRENGTH","hd_strength",0.2,11,0.2,2
+	Option "$HDOPTIONS_HELPTEXT","hd_helptext","YesNo"
+	Option "$HDOPTIONS_PASSIVESIGHTS","hd_noscope","NoScope"
+	Option "$HDOPTIONS_SIGHTBOB","hd_sightbob","YesNo"
+	Slider "$HDOPTIONS_CROSSHAIRSCALE","hd_crosshairscale",0.1,3.0,0.1,1
+	Slider "$HDOPTIONS_USEKEYDELAY","hd_hudusedelay",-2,70,1,0
+	Option "$HDOPTIONS_HUDSTYLE","hd_hudstyle","HudStyle"
+	Option "$HDOPTIONS_USEASFOCUS","hd_usefocus","YesNo"
+	Slider "$HDOPTIONS_FOCUSKEYSENSITIVITY","hd_aimsensitivity",0.05,0.99,0.05,2
+	Slider "$HDOPTIONS_BRACEDSENS","hd_bracesensitivity",0.05,0.99,0.05,2
+	Option "$HDOPTIONS_NOZOOMLEAN","hd_nozoomlean","YesNo"
+	Option "$HDOPTIONS_SLIDECROUCH","hd_noslide","NoSlide"
+	Option "$HDOPTIONS_SWAPBARRELS","hd_swapbarrels","YesNo"
+	ScaleSlider "$HDOPTIONS_MAGPICKUPLIMIT","hd_maglimit",0,20,1,"No limit"
+	Option "$HDOPTIONS_CONSOLIDATION","hd_consolidate","YesNo"
+	Option "$HDOPTIONS_RANDOMPITCH","hd_monstervoicepitch","YesNo"
+	SafeCommand "$HDOPTIONS_RESETUSERSETTINGS","hd_clearucv","$HDOPTIONS_REALLYRESETUSERSETTINGS"
 
 	StaticText " "
-	StaticText "GZDoom Bob Settings",1
+	StaticText "$HDOPTIONS_BOBSETTINGS",1
 	Slider "$DSPLYMNU_MOVEBOB","movebob",0,1.0,0.05,2
 	Slider "$DSPLYMNU_STILLBOB","stillbob",0,1.0,0.05,2
 	Slider "$DSPLYMNU_BOBSPEED","wbobspeed",0,2.0,0.1
 
 	StaticText " "
-	StaticText "User Personal Gear Settings",1
-	Option "DERP mode","hd_derpmode","DERPModes"
-	Option "IEDs start active","hd_autoactivateied","YesNo"
-	Option "Reflex sight image","hd_crosshair","ReflexReticle"
-	Slider "Night vision brightness","hd_nv",0,100,1,0
-	Option "Night vision style","hd_nv_style","NVGStyle"
-	SafeCommand "Reset Weapon Settings","hd_clearwepcv","Really clear all weapon settings?"
+	StaticText "$HDOPTIONS_USERGEAR",1
+	Option "$HDOPTIONS_DERPMODE","hd_derpmode","DERPModes"
+	Option "$HDOPTIONS_IEDACTIVE","hd_autoactivateied","YesNo"
+	Option "$HDOPTIONS_REFLEXRETICLE","hd_crosshair","ReflexReticle"
+	Slider "$HDOPTIONS_NVGBRIGHTNESS","hd_nv",0,100,1,0
+	Option "$HDOPTIONS_NVGSTYLE","hd_nv_style","NVGStyle"
+	SafeCommand "$HDOPTIONS_RESETWEAPONSETTINGS","hd_clearwepcv","$HDOPTIONS_REALLYRESETWEAPONSETTINGS"
 }
