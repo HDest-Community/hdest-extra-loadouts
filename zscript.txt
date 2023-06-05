@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
 // Menu
 // ------------------------------------------------------------
-Version "4.10.0" 
+Version "4.10.0"
 enum HDLoadoutMenuNums{
 	HD_MAXLOADOUTS=100,
 }
@@ -35,7 +35,7 @@ class HDLoadoutMenu2:GenericMenu{
 		isnewgamemenu=false;
 		different=false;
 		showhelp=false;
-		statusstring="Now editing loadout no. "..cursy;
+		statusstring=Stringtable.Localize("$LOADOUTMENU_EDITING")..cursy;
 		statustimer=0;
 		loadoutname="";
 		loadoutpic=texman.checkfortexture("TNT1A0",texman.type_sprite);
@@ -117,7 +117,7 @@ class HDLoadoutMenu2:GenericMenu{
 			break;
 		case MKEY_Up:
 			if(checkdifferent()){
-				statustext("\cjENTER or Ctrl+S to save, or ESC to abort.");
+				statustext(Stringtable.Localize("$"));
 			}else{
 				cursy--;
 				if(cursy<1)cursy=HD_MAXLOADOUTS;
@@ -128,7 +128,7 @@ class HDLoadoutMenu2:GenericMenu{
 			break;
 		case MKEY_Down:
 			if(checkdifferent()){
-				statustext("\cjENTER or Ctrl+S to save, or ESC to abort.");
+				statustext(Stringtable.Localize("$LOADOUTMENU_SAVE"));
 			}else{
 				cursy++;
 				if(cursy>HD_MAXLOADOUTS)cursy=1;
@@ -142,14 +142,14 @@ class HDLoadoutMenu2:GenericMenu{
 			else{
 				cvar.findcvar("playerclass").setstring("Loadout "..cursy);
 				cvar.findcvar("hd_myloadout").setstring("");
-				statustext("\cxLoadout set to number "..cursy..".");
+				statustext(Stringtable.Localize("$LOADOUTMENU_SETTONUM")..cursy..".");
 			}
 			break;
 		case MKEY_PageUp:
-			tlcursy=max(0,tlcursy-1);
+			tlcursy=max(0,tlcursy-12);
 			break;
 		case MKEY_PageDown:
-			tlcursy++;
+			tlcursy+=12;
 			break;
 		}
 		translatedloadout=gettranslatedloadout(workingstring);
@@ -159,10 +159,12 @@ class HDLoadoutMenu2:GenericMenu{
 		if(ev.Type==UIEvent.Type_KeyDown){
 			switch(ev.KeyChar){
 			case UIEvent.Key_Home:
-				cursx=0;
+				if(ev.IsCtrl)tlcursy=0;
+				else cursx=0;
 				break;
 			case UIEvent.Key_End:
-				cursx=workingstring.length();
+				if(ev.IsCtrl)tlcursy=int.MAX;
+				else cursx=workingstring.length();
 				break;
 			case UIEvent.Key_Del:
 				workingstring=workingstring.left(cursx)..workingstring.mid(cursx+1);
@@ -195,7 +197,7 @@ class HDLoadoutMenu2:GenericMenu{
 					if(inp~=="r"){
 						string bak=cvar.findcvar("hd_loadout"..cursy).getstring();
 						cvar.findcvar("hd_loadout"..cursy).resettodefault();
-						statustext("\cyRESET TO DEFAULT.");
+						statustext(Stringtable.Localize("$LOADOUTMENU_RESETLOADOUT"));
 						resetws();
 						undo=bak;
 					}else if(inp~=="s"){
@@ -205,13 +207,13 @@ class HDLoadoutMenu2:GenericMenu{
 					}else if(inp~=="x"){
 						clipboard=workingstring;
 						workingstring="";
-						statustext("\caCut to clipboard.");
+						statustext(Stringtable.Localize("$LOADOUTMENU_CUTTOBOARD"));
 					}else if(inp~=="c"){
 						clipboard=workingstring;
-						statustext("\cdCopied to clipboard.");
+						statustext(Stringtable.Localize("$LOADOUTMENU_COPYFROMBOARD"));
 					}else if(inp~=="v"){
 						workingstring=clipboard;
-						statustext("\cxPasted from clipboard.");
+						statustext(Stringtable.Localize("$LOADOUTMENU_PASTEFROMBOARD"));
 					}else if(inp~=="f"){
 						if(viewlist)viewlist=false;else viewlist=true;
 						tlcursy=0;
@@ -223,10 +225,10 @@ class HDLoadoutMenu2:GenericMenu{
 							workingstring==cvar.findcvar("hd_loadout"..cursy).getstring()
 						){
 							MenuSound("menu/choose");
-							cvar.findcvar("playerclass").setstring("Loadout "..cursy);
+							cvar.findcvar("playerclass").setstring(Stringtable.Localize("$LOADOUTMENU_LOADOUT")..cursy);
 							Menu.SetMenu("PlayerclassMenu");
 						}else{
-							statustext("\ca- Save your loadout first!");
+							statustext(Stringtable.Localize("$LOADOUTMENU_SAVEFIRST"));
 						}
 						return true;
 					}
@@ -236,11 +238,14 @@ class HDLoadoutMenu2:GenericMenu{
 		}else if(ev.Type==UIEvent.Type_Char){
 			workingstring=workingstring.left(cursx)..ev.KeyString..workingstring.mid(cursx);
 			cursx++;
-		}else if(ev.type == UIEvent.Type_WheelUp){
-			tlcursy=max(0,tlcursy-1);
-		}else if (ev.type == UIEvent.Type_WheelDown){
-			tlcursy++;
+
+		//[2023-03-15 mc] apparently this actually works, just not on my system
+        }else if(ev.type == UIEvent.Type_WheelUp){
+            tlcursy=max(0,tlcursy-3);
+        }else if (ev.type == UIEvent.Type_WheelDown){
+            tlcursy+=3;
 		}
+
 		checkdifferent();
 		translatedloadout=gettranslatedloadout(workingstring);
 		return Super.OnUIEvent(ev);
@@ -253,7 +258,7 @@ class HDLoadoutMenu2:GenericMenu{
 		if(checkdifferent()){
 			undo=cvar.findcvar("hd_loadout"..cursy).getstring();
 			cvar.findcvar("hd_loadout"..cursy).setstring(workingstring);
-			statustext("\cy- SAVED TO LOADOUT NO. "..cursy.." -");
+			statustext(Stringtable.Localize("$LOADOUTMENU_LOADSAVEDTO")..cursy.." -");
 			checkdifferent();
 		}
 		tlcursy=0;
@@ -285,11 +290,11 @@ class HDLoadoutMenu2:GenericMenu{
 			string finalinput=loadoutdisplaystring;finalinput.replace(" ","");
 			loadoutpic=texman.checkfortexture(lon,texman.type_any);
 			if(finalinput~=="doomguy"){
-				ttl="Pistol and fifty bullets.";
+				ttl=Stringtable.Localize("$LOADOUTMENU_DOOMGUY");
 			}else if(finalinput~=="insurgent"){
-				ttl="It's a surprise...";
+				ttl=Stringtable.Localize("$LOADOUTMENU_INSURGENT");
 			}else if(finalinput==""){
-				ttl="Because showing up is half the battle.";
+				ttl=Stringtable.Localize("$LOADOUTMENU_NATURIST");
 			}else{
 				if(desc!="")ttl=desc.."\n\n"..ttl;
 				finalinput.split(items,"-");
@@ -333,8 +338,8 @@ class HDLoadoutMenu2:GenericMenu{
 					}
 				}
 				if(inbp){
-					ttl=ttl.."\n\nIN BACKPACK:";
-					if(!bpitems.size())ttl=ttl.."\n  <nothing>";
+					ttl=ttl..Stringtable.Localize("$LOADOUTMENU_INBACKPACK");
+					if(!bpitems.size())ttl=ttl..Stringtable.Localize("$LOADOUTMENU_NOBACKPACK");
 					else for(int i=0;i<bpitems.size();i++){
 						string refid=bpitems[i].left(3);
 						if(refid=="")continue;
@@ -345,7 +350,7 @@ class HDLoadoutMenu2:GenericMenu{
 							||nicenames[whichindex]==""
 						){
 							if(bpitems.size()==1){
-								ttl=ttl.."\n  <nothing>";
+								ttl=ttl..Stringtable.Localize("$LOADOUTMENU_NOBACKPACK");
 								break;
 							}else thisname="\ca ? ? ?\cj";
 						}else thisname=nicenames[whichindex];
@@ -367,9 +372,14 @@ class HDLoadoutMenu2:GenericMenu{
 
 		if(isnewgamemenu)return ttl;
 
-		ttl="\n\cu  Ctrl+F "..(viewlist?"preview":"refID list").."   PgUp/PgDn scroll\cj\n"..ttl;
-		if(viewlist)ttl="\cnC O D E   R E F E R E N C E   L I S T            "..ttl;
-		       else ttl="\ceL O A D O U T   P R E V I E W                    "..ttl;
+		ttl=
+			Stringtable.Localize("$LOADOUTMENU_CTRLF")
+			..(viewlist?Stringtable.Localize("$LOADOUTMENU_PREVIEW"):Stringtable.Localize("$LOADOUTMENU_REFIDLIST"))
+			..Stringtable.Localize("$LOADOUTMENU_PAGEUPDOWN")..ttl;
+
+		if(viewlist)ttl=Stringtable.Localize("$LOADOUTMENU_CODEREFERENCELIST")..ttl;
+		       else ttl=Stringtable.Localize("$LOADOUTMENU_LOADOUTPREVIEW")..ttl;
+
 		return ttl;
 	}
 	int blinktimer;
@@ -388,7 +398,7 @@ class HDLoadoutMenu2:GenericMenu{
 			);
 		}
 
-		string hs="Configure Loadout";
+		string hs=Stringtable.Localize("$LOADOUTMENU_CONFIGURELOADOUT");
 		screen.DrawText(BigFont,
 			OptionMenuSettings.mTitleColor,
 			(screen.GetWidth() - BigFont.StringWidth(hs) * CleanXfac_1) / 2,
@@ -397,7 +407,7 @@ class HDLoadoutMenu2:GenericMenu{
 		);
 		vcurs+=BigFont.GetHeight()+(NewSmallFont.GetHeight()>>1);
 
-		hs="\cdENTER\cu save   \cdESC\cu clear changes   \cdCtrl+R\cu reset   \cdCtrl+H\cu "..(showhelp?"hide":"view").." syntax help";
+		hs=Stringtable.Localize("$LOADOUTMENU_CONTROLS")..(showhelp?Stringtable.Localize("$LOADOUTMENU_HIDE"):Stringtable.Localize("$LOADOUTMENU_VIEW"))..Stringtable.Localize("$LOADOUTMENU_SYNTAXHELP");
 		screen.DrawText(NewSmallFont,
 			OptionMenuSettings.mFontColor,
 			(screen.GetWidth() - NewSmallFont.StringWidth(hs) * CleanXfac_1) / 2,
@@ -407,7 +417,7 @@ class HDLoadoutMenu2:GenericMenu{
 		vcurs+=NewSmallFont.GetHeight()*2;
 
 		if(showhelp){
-			hs="\cgSyntax:   \cazzzz#aaaa:xxx n, yyy n, bak yyy n. yyy n\n\cazzzz\cu preview picture (optional)   \caaaaa\cu name (optional)\n\caxxx\cu starting weapon   \cayyy\cu anything else\n\can\cu number given\cu (optional, default 1)\n\cabak\cu begin backpack settings\n\camap\cu for map   \cakey\cu for keys (bitflag BYR)\n\n";
+			hs=Stringtable.Localize("$LOADOUTMENU_SYNTAX");
 			screen.DrawText(NewSmallFont,
 				OptionMenuSettings.mFontColor,
 				(screen.GetWidth() - NewSmallFont.StringWidth(hs) * CleanXfac_1) / 2,
@@ -480,7 +490,7 @@ class HDLoadoutMenu2:GenericMenu{
 		}
 		vcurs+=NewSmallFont.GetHeight();
 
-		string s="Now editing loadout no. "..cursy;
+		string s=Stringtable.Localize("$LOADOUTMENU_NOWEDITING")..cursy;
 		if(loadoutname!="")s=s..", \""..loadoutname.."\"";
 		if(statustimer>0){
 			statustimer--;
@@ -517,7 +527,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 	override string GetTranslatedLoadout(string input){
 		string lod=super.GetTranslatedLoadout(input);
 		string ws=hdmath.getloadoutstrings(input,true);
-		if(loadoutname=="")loadoutname="Loadout "..cursy;
+		if(loadoutname=="")loadoutname=Stringtable.Localize("$LOADOUTMENU_LOADOUT")..cursy;
 		if(!loadoutpic.isvalid()){
 			ws.replace(" ","");
 			ws=ws.left(3);
@@ -570,7 +580,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 			return true;
 		case MKEY_Enter:
 			MenuSound("menu/choose");
-			cvar.findcvar("playerclass").setstring("Loadout "..cursy);
+			cvar.findcvar("playerclass").setstring(Stringtable.Localize("$LOADOUTMENU_LOADOUT")..cursy);
 			Menu.SetMenu("PlayerclassMenu");
 			return true;
 		case MKEY_PageUp:
@@ -641,7 +651,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 		if(!cplayer)return;
 		int vcurs=0;
 
-		string hs="New Game: Select Loadout";
+		string hs=Stringtable.Localize("$MENU_NEWGAME");
 		screen.DrawText(BigFont,OptionMenuSettings.mTitleColor,
 			0,
 			vcurs,
@@ -650,7 +660,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 		);
 		vcurs+=BigFont.GetHeight()+2;
 
-		hs="\cuUp/Down select, Enter confirm, R random, Ctrl+R lucky";
+		hs=Stringtable.Localize("$MENU_NEWGAME_CONTROLS");
 		screen.DrawText(SmallFont,
 			OptionMenuSettings.mFontColor,
 			160-SmallFont.StringWidth(hs)/2,
@@ -682,7 +692,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 		string ws=loadoutdisplaystring;
 		while(ws.byteat(0)==" ")ws=ws.mid(1);
 
-		if(ws=="")ws="<nothing>";
+		if(ws=="")ws=Stringtable.Localize("$MENU_WEAPONSTRING_NOTHING");
 
 		int tempcursx=cursx;
 		uint maxwidth=(screen.GetWidth()*3/5)/(SmallFont.StringWidth("_")*CleanXfac_1);
@@ -741,7 +751,7 @@ class HDNewGameLoadoutMenu2:HDLoadoutMenu2{
 		}
 		vcurs+=SmallFont.GetHeight();
 
-		string s="Loadout no.  "..cursy;
+		string s=Stringtable.Localize("$LOADOUTMENU_LOADOUTNO")..cursy;
 		screen.DrawText(SmallFont,OptionMenuSettings.mTitleColor,
 			(screen.GetWidth() - SmallFont.StringWidth(s) * CleanXfac_1) / 2,
 			vcurs,
