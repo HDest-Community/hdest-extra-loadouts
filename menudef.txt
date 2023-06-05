@@ -101,12 +101,6 @@ OptionMenu "HDOptionsMenu"{
 	SafeCommand "$HDOPTIONS_RESETUSERSETTINGS","hd_clearucv","$HDOPTIONS_REALLYRESETUSERSETTINGS"
 
 	StaticText " "
-	StaticText "$HDOPTIONS_BOBSETTINGS",1
-	Slider "$DSPLYMNU_MOVEBOB","movebob",0,1.0,0.05,2
-	Slider "$DSPLYMNU_STILLBOB","stillbob",0,1.0,0.05,2
-	Slider "$DSPLYMNU_BOBSPEED","wbobspeed",0,2.0,0.1
-
-	StaticText " "
 	StaticText "$HDOPTIONS_USERGEAR",1
 	Option "$HDOPTIONS_DERPMODE","hd_derpmode","DERPModes"
 	Option "$HDOPTIONS_IEDACTIVE","hd_autoactivateied","YesNo"
