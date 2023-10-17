@@ -22,7 +22,7 @@ ListMenu "MainMenu"{
 	IfGame(Doom,Strife,Chex){
 		PatchItem "M_NGAME","n","HDNewGameLoadoutMenu2"
 //			TextItem "HD Loadouts","o","HDLoadoutMenu2"
-			TextItem "HD Options","o","HDOptionsMenu"
+			TextItem "$MNU_HDOPTIONS","o","HDOptionsMenu"
 //			TextItem "HD Controls","o","HDControlsMenu"
 		ifOption(SwapMenu){
 			PatchItem "M_LOADG","l","LoadGameMenu"
